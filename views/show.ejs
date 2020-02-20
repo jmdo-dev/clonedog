@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CLONEDOG</title>
+		<link
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:400,300"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./show.css" />
+	</head>
+	<body>
+
+    <!-- HEADER -->
+		<div class="container-fluid main-container">
+			<% data.forEach (function(beer) { %>
+			<div class="container">
+				<div class="jumbotron">
+					<h1><%= beer.name.toUpperCase() %></h1>
+					<h4><%= beer.tagline %></h4>
+					<br />
+					<h5 class="text-right">First Brewed: <%= beer.first_brewed %></h5>
+				</div>
+			</div>
+			<% }) %>
+    </div>
+    
+    <!--MAIN CONTENT -->
+    <div class="container w-100">
+
+     <!--RENDER FUNCTION --> 
+    <% data.forEach (function(beer) { %>
+      <div class='card-columns'>
+
+      <!-- DESCRIPTION --> 
+      <div class="card">
+        <div class="card-header">
+        <h3> THIS BEER IS </h3>
+        </div>
+        <div class="card-body">
+        <p class="card-text"><%= beer.description %> </p>
+        </div>
+      </div>
+     
+    <!-- BASICS -->
+    <div class='card'>
+        <div class='card-header'>
+            <h3>BASICS</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">VOLUME <span class='container text-right'> <%=beer.volume.value%> Litres</span></li>
+          <li class="list-group-item">BOIL VOLUME <span class='container text-right'> <%=beer.boil_volume.value%> Litres</span></li>
+          <li class="list-group-item">ABV <span class='container text-right'> <%=beer.abv%>% </span></li>
+          <li class="list-group-item">IBU <span class='container text-right'> <%=beer.ibu%> </span></li>
+          <li class="list-group-item">TAREGT FG <span class='container text-right'> <%=beer.target_fg%> </span></li>
+          <li class="list-group-item">TARGET OG <span class='container text-right'> <%=beer.target_og%> </span></li>
+          <li class="list-group-item">EBC <span class='container text-right'> <%=beer.ebc%> </span></li>
+          <li class="list-group-item">SRM<span class='container text-right'> <%=beer.srm%> </span></li>
+          <li class="list-group-item">PH <span class='container text-right'> <%=beer.ph%> </span></li>
+          <li class="list-group-item">ATTENUATION LEVEL <span class='container text-right'> <%=beer.attenuation_level%>% </span></li>
+        </ul>
+      </div>
+    
+    <!-- BREWER'S TIP -->
+    <div class="card">
+        <div class="card-header">
+        <h3> BREWER'S TIP </h3>
+        </div>
+        <div class="card-body">
+        <p class="card-text"><%= beer.brewers_tips %> </p>
+        </div>
+      </div>
+  
+    <!-- INGREDIENTS -->
+      <div class='card'>
+        <div class='card-header'>
+          <h3> INGREDIENTS</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item font-weight-bold text-monospace">MALT</li>
+            <% for (var i=0; i < beer.ingredients.malt.length; i++) { %>
+            <li class="list-group-item"> <%=beer.ingredients.malt[i].name%> <span class='container text-right'> <%=beer.ingredients.malt[i].amount.value%>kg</span></li>
+            <% } %>
+            <li class="list-group-item font-weight-bold text-monospace">HOPS</li>
+            <% for (var i=0; i < beer.ingredients.hops.length; i++) { %>
+            <li class="list-group-item"> <%=beer.ingredients.hops[i].name%> <span class='container text-right'> <%=beer.ingredients.hops[i].amount.value%>g  (<%=beer.ingredients.hops[i].add%>)</span></li>
+            <% } %>
+            <li class="list-group-item font-weight-bold text-monospace">YEAST</li>
+            <li class="list-group-item"> <%=beer.ingredients.yeast%> </li>
+        </ul>
+      </div>
+
+    <!-- METHOD/TIMINGS -->
+      <div class='card'>
+          <div class='card-header'>
+            <h3>METHOD / TIMINGS</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">MASH TEMP <span class='container text-right'> <%=beer.method.mash_temp[0].temp.value%>&#x2103%></span></li>
+              <li class="list-group-item">FERMENTATION <span class='container text-right'> <%=beer.method.fermentation.temp.value%>&#x2103%></span></li>
+          </ul>
+        </div>
+
+    <!-- FOOD PAIRING -->   
+      <div class="card">
+          <div class="card-header">
+            <h3> FOOD PAIRING </h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= beer.food_pairing[0] %> </li>
+            <li class="list-group-item"><%= beer.food_pairing[1] %> </li>
+            <li class="list-group-item"><%= beer.food_pairing[2] %> </li>
+          </ul>
+        </div>
+        
+    
+        </div>
+      <% }) %>
+    <div>
+	</body>
+</html>
+
+
+

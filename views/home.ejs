@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <title>CLONEDOG</title>
+    <link rel="stylesheet" type="text/css" href="./landing.css" />
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+<!--   
+    <script src="./main.js"></script> -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,300"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+	</head>
+	<body>
+    <!-- page heading -->
+<div class='container container-dark p-y-md'>
+    <div class='header-content'>
+      <h1>Clonedog</h1>
+      <h2>Recipes from the Brewdog archive</h2>
+    </div>
+  </div>
+  
+  <!-- page content + floating button -->
+  <div class='container p-y-md'>
+    <div class='control'>
+      <div class='btn-material'></div>
+      <i class='material-icons icon-material-search'>search</i>
+    </div>
+  
+
+  <!-- full screen form controls -->
+  <i class='icon-close material-icons'>close</i>
+  <div class='search-input'>
+    <form autocomplete='off' method='POST'>
+        <input autocomplete='off' class='input-search' placeholder='Search For Beer' type='text' name='search'>
+    </form>
+  </div>
+  
+  
+  <script>
+    $(document).ready(function(){
+    $('.control').click(function() {
+      $('body').addClass('search-active');
+      $('.input-search').focus();
+    });
+    
+    $('.icon-close').click(function() {
+      $('body').removeClass('search-active');
+    });
+  })
+  </script>
+
+	</body>
+</html>

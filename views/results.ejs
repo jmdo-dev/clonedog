@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CLONEDOG</title>
+		<link
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:400,300"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./results.css" />
+	</head>
+	<body>
+		<div class="container container-dark p-y-md">
+			<div class="header-content">
+				<h1 class='hfo1'>CLONEDOG</h1>
+				<h4 class='hfo4'>Search results for <i><%= beer %></i></h4>
+			</div>
+		</div>
+
+		<div class="container card-container w-85">
+			<div>
+				<div class="card-columns">
+					<!-- CARD LOGIC  -->
+<!-- TODO: CENTRE CARD AT 1 CARD/COLUMN WIDTH-->
+<!-- TODO: STYLE CARD - BORDERS ETC -->
+					<% data.forEach(function(beer){ %>
+					<div class="card text-center">
+						<img
+							src="<%= beer.image_url %>"
+							class="card-img-top img-responsive d-none d-sm-block img-format"
+							alt="<% beer.name %> "
+						/>
+						<div class="card-body">
+							<h2 class="card-title"><%= beer.name.toUpperCase() %></h5>
+              <h4 class="card-text"><%= beer.tagline.toUpperCase() %></h5>
+            <!-- TODO: EDIT BUTTON -->
+              <a href="/<%= beer.id %>" class="btn-sm btn-primary button">GET RECIPE</a>
+						</div>
+					</div>
+					<% }) %>
+
+					<!-- LOGIC ENDS -->
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

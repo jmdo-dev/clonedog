@@ -1,0 +1,78 @@
+html,
+body {
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #2d2d2d;
+	letter-spacing: 0.4px;
+	background-color: #0f77a4;
+}
+
+.jumbotron {
+	background-color: #22313f;
+	color: white;
+	padding-bottom: 2rem;
+	margin-bottom: 0;
+}
+
+.card {
+	border: none;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+.card-header {
+	background-color: #22313f;
+	color: white;
+}
+
+.card-body {
+	background-color: #e1e9f1;
+}
+
+.table {
+	width: 94%;
+	margin: 15px auto;
+}
+.table-bg {
+	background-color: #22313f;
+	color: white;
+	letter-spacing: 0.5px;
+}
+
+.list-group-item {
+	background-color: #e1e9f1;
+	display: flex;
+	padding: 0.25rem 0.75rem 0.25rem 1.25rem;
+}
+span:first-of-type {
+	flex: 1;
+}
+
+.desc-table {
+	margin-top: 2rem;
+}
+
+@media (min-width: 1px) {
+	.card-columns {
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		column-count: 1;
+	}
+	.card {
+		width: 80%;
+		margin: 1.5rem auto;
+	}
+}
+
+@media (min-width: 900px) {
+	.card-columns {
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+	}
+}
